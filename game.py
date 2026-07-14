@@ -31,5 +31,11 @@ def play_round():
         if guess == secret_number:
             print(f"Correct! You got it in {attempts_used} attempts.")
             return
+        
+        if guess < secret_number:
+            print("Too Low")
+        else:
+            print("Too High")
+
         print(f"Attempts left: {MAX_ATTEMPTS - attempts_used}")
     print(f"Out of attempts! The number was {secret_number}.")
