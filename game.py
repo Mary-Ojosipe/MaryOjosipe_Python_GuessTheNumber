@@ -49,7 +49,7 @@ def play_round():
 
         if guess == secret_number:
             print(f"Correct! You got it in {attempts_used} attempts.")
-            return
+            return True, attempts_used
         
         distance = abs(guess - secret_number)
         hint = get_proximity_hint(distance)
@@ -60,4 +60,6 @@ def play_round():
             print(f"Too High, {hint}")
 
         print(f"Attempts left: {MAX_ATTEMPTS - attempts_used}")
+    
     print(f"Out of attempts! The number was {secret_number}.")
+    return False, attempts_used
