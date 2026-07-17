@@ -1,14 +1,15 @@
 """
-Keeps track of stats for the whole session.
-These are global counters, which live outside of any function.
-They keep their value for as long as the program keeps running,
-any function in this file can update them.
+File: scoreboard.py
+
+Purpose:
+Keeps track of the player's statistics for the current session.
+It records games played, games won, win percentage, and the best winning score.
 """
 
 
 rounds_played = 0
 rounds_won = 0
-best_attempts = None                        #fewest attempts taken to win a round so far
+best_attempts = None            # lowest number of guesses needed to win a round
 
 
 def record_round(won, attempts_used):

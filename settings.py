@@ -1,7 +1,9 @@
 """
-This file stores the difficulty presets and the number/attempt settings
-currrently being used for the game.
-We would only need to change a value in one place.
+File: settings.py
+
+Purpose:
+Stores the game settings and difficulty presets.
+Changing values here updates the settings used throughout the game.
 """
 
 DIFFICULTIES = {
@@ -11,17 +13,16 @@ DIFFICULTIES = {
 }
 
 
-# proximity hint threshold, how far off a guess is allowed to be
-# for each hint level (the smaller the distance, the closer the guess)
+# distance ranges used to decide which hint to show
+# smaller the distance, the closer the guess
 ALMOST_THERE_DISTANCE = 2
 VERY_CLOSE_DISTANCE = 5
 CLOSE_DISTANCE = 10
 OFF_DISTANCE = 20
 
 
-# current setting, chosen when the player picks a difficulty
-# these are global variables, which exist outside of any function,
-# whole program shares a copy that updates whenever a new round starts
+# stores the currently selected difficulty
+# these global values are shared across the program
 current_difficulty = "Medium"
 current_min = DIFFICULTIES[current_difficulty]["min"]
 current_max = DIFFICULTIES[current_difficulty]["max"]

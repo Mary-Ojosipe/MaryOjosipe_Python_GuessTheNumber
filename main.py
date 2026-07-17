@@ -1,6 +1,9 @@
 """
-This is the file you run to start the game.
-It hands control over to the main menu.
+File: main.py
+
+Purpose:
+This is the starting point of the program.
+It launches the main menu and starts the game.
 """
 
 

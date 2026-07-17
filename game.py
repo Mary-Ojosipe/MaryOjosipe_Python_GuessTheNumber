@@ -1,12 +1,17 @@
 """
-This file holds the actual game logic.
+File: game.py
+
+Purpose:
+Contains the main game logic.
+It runs each round, checks the player's guesses,
+and gives hints until the round ends.
 """
 
 
 import random
 import settings
 
-# a small icon for each proximity level, just for the aesthetic
+# icons shown next to each proximity hint
 PROXIMITY_ICONS = {
     "Way Off": "🧊",
     "Off": "❄️",
@@ -24,7 +29,7 @@ def show_instructions():
     print(f"Difficulty: {settings.current_difficulty}")
     print(f"I'm thinking of a number between {settings.current_min} and {settings.current_max}.")
     print(f"You have {settings.current_attempts} attempts to guess it.")
-    print("After each guess, you'll get two hint:")
+    print("After each guess, you'll receive two hint:")
     print(" - Direction: 'Too Low' or 'Too High'")
     print(" - Proximity: 'Way Off' or 'Off' or 'Close' or 'Very Close' or 'Almost There'")
     print("Good luck!\n")
@@ -43,8 +48,8 @@ def choose_difficulty():
 
 def get_valid_guess():
     """
-    Asks player for a guess till they type a valid whole number.
-    A bad guess doesn't use up an attempt.
+    Keeps asking until the player enters a valid whole number.
+    Invalid inputs do not count as an attempt.
     """
     while True:
         guess_text = input(f"Guess a number between {settings.current_min} and {settings.current_max}: ")
@@ -56,8 +61,8 @@ def get_valid_guess():
 
 def get_proximity_hint(distance):
     """
-    Let's you know how far off a guess was.
-    Smaller distance means the guess was closer to the secret number.
+    Tells the player how close their guess is.
+    A smaller distance means the guess is closer to the number.
     """
     if distance <= settings.ALMOST_THERE_DISTANCE:
         return "Almost There"
@@ -74,9 +79,9 @@ def get_proximity_hint(distance):
 def play_round():
     """
     Plays a full round of the game using the current settings.
-    Returns (won, attempts_used) so the scoreboard can be updated
+    Returns (won, attempts_used) so the scoreboard can be updated.
     """
-    # picks a random number in the range
+    # chooses a random number for this round
     secret_number = random.randint(settings.current_min, settings.current_max)
     attempts_used = 0
 

@@ -1,5 +1,10 @@
 """
-This file handles the main menu and hands off to game.py for actual play
+File: menu.py
+
+Purpose:
+Handles the main menu and navigation.
+It allows the player to start the game, view the
+instructions, see the scoreboard, or quit the program.
 """
 
 
@@ -20,7 +25,7 @@ def show_main_menu():
 
 
 def play_session():
-    """Play one or more rounds in a row, looping on 'play again'"""
+    """Runs the game until the player chooses to stop"""
     choose_difficulty()
 
     keep_playing = True
