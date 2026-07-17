@@ -25,11 +25,14 @@ def record_round(won, attempts_used):
 
 def show_scoreboard():
     """Displays the current session stats."""
+    win_percent = (rounds_won / rounds_played * 100) if rounds_played else 0
+
     print("\n--- Scoreboard ---")
     print(f"Rounds played: {rounds_played}")
     print(f"Rounds won: {rounds_won}")
+    print(f"Win percentage: {win_percent:.1f}%")
     if best_attempts is not None:
         print(f"Best round: {best_attempts} attempts")
     else:
         print("Best round: no wins yet")
-    print("-------\n")
+    print("--------------------------\n")
