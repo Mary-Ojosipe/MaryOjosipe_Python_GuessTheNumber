@@ -38,7 +38,7 @@ def play_session():
 
 
 def run():
-    """The main menu loop, keeps showing the menu until the play quits"""
+    """Shows the main menu until the player chooses to quit"""
     print("Welcome to Guess the Number!\n")
 
     while True:

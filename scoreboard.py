@@ -13,7 +13,7 @@ best_attempts = None            # lowest number of guesses needed to win a round
 
 
 def record_round(won, attempts_used):
-    """Updates the scoreboard after a round has finished"""
+    """Updates the session statistics after each completed round"""
     global rounds_played, rounds_won, best_attempts
 
     rounds_played += 1

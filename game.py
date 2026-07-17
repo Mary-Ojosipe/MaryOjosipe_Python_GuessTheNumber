@@ -29,7 +29,7 @@ def show_instructions():
     print(f"Difficulty: {settings.current_difficulty}")
     print(f"I'm thinking of a number between {settings.current_min} and {settings.current_max}.")
     print(f"You have {settings.current_attempts} attempts to guess it.")
-    print("After each guess, you'll receive two hint:")
+    print("After each guess, you'll receive two hints:")
     print(" - Direction: 'Too Low' or 'Too High'")
     print(" - Proximity: 'Way Off' or 'Off' or 'Close' or 'Very Close' or 'Almost There'")
     print("Good luck!\n")
@@ -61,13 +61,13 @@ def get_valid_guess():
 
 def get_proximity_hint(distance):
     """
-    Tells the player how close their guess is.
-    A smaller distance means the guess is closer to the number.
+    Returns a proximity hint based on how close the guess is.
+    Smaller distances means the player is closer to the random number.
     """
     if distance <= settings.ALMOST_THERE_DISTANCE:
         return "Almost There"
     elif distance <= settings.VERY_CLOSE_DISTANCE:
-            return "Very Close"
+        return "Very Close"
     elif distance <= settings.CLOSE_DISTANCE:
         return "Close"
     elif distance <= settings.OFF_DISTANCE:
